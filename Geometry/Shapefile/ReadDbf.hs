@@ -10,14 +10,14 @@ module Geometry.Shapefile.ReadDbf ( readDbfFile,
                                     readDbfData
                                   ) where
 
-import Control.Monad       ( replicateM )
-import Control.Monad.Loops ( whileM )
-import Data.Binary.Get
+import           Control.Monad               (replicateM)
+import           Control.Monad.Loops         (whileM)
+import           Data.Binary.Get             hiding (getInt8)
 
-import qualified Data.ByteString.Lazy as BL
+import qualified Data.ByteString.Lazy        as BL
 
-import Geometry.Shapefile.Internal
-import Geometry.Shapefile.Types
+import           Geometry.Shapefile.Internal
+import           Geometry.Shapefile.Types
 
 -- | Read dbf file at `fp` into resident data format `DbfData`
 readDbfFile :: String -> IO DbfData
